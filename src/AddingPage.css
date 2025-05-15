@@ -1,0 +1,153 @@
+
+
+.card {
+  position: relative; /* Add this to anchor the absolute close button */
+  width: 100%;
+  align-items: center;
+  max-width: 400px;
+  border-radius: 1rem;
+  padding-top: 0rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  background: rgba(255, 213, 188, 0.31);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(11.3px);
+  -webkit-backdrop-filter: blur(11.3px);
+  border: 1px solid #d74826;
+}
+
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.select,
+.input,
+.inline-selects select {
+  width: 95%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid #000000;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.time-select-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.time-group {
+  flex: 1;
+}
+
+.inline-selects {
+  display: flex;
+  align-items: center;
+}
+
+.inline-selects select {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.colon {
+  margin: 0 0.25rem;
+  font-weight: 600;
+}
+
+.button-groups {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: 600;
+  color: azure;
+  background-color: #342b29;
+  margin-bottom: 0.5rem;
+}
+
+.btn-commercial:hover,
+.btn-adjustment:hover,
+.btn-cdo:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+
+.close-x {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.textarea {
+  width: 95%;
+  padding: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #000000;
+  background-color: transparent;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.btn-other {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: 600;
+  color: azure;
+  background-color: #342b29;
+}
+.btn-other:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+.date-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.date-field {
+  flex: 1;
+}
+
+.date-select {
+  width: 95%;
+  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-weight: bold;
+}

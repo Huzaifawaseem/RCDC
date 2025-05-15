@@ -1,0 +1,35 @@
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-dropdown {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.search-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #fa9522;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}

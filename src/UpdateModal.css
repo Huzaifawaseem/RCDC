@@ -1,0 +1,106 @@
+/* File: src/UpdateModal.css */
+.update-modal {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  margin: 5% auto;
+  position: relative;
+  z-index: 1000;
+  background: rgba(255, 213, 188, 0.31);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(11.3px);
+  -webkit-backdrop-filter: blur(11.3px);
+  border: 1px solid #d74826;
+}
+
+.update-modal h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  color: azure;
+  background-color: #342b29;
+}
+
+.button-group button:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.unhold-btn {
+  background-color: #a7f3d0;
+}
+
+.delete-btn {
+  background-color: #fecaca;
+  color: #b91c1c;
+}
+
+.close-x {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Add to UpdateModal.css */
+.date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.date-field {
+  display: flex;
+  flex-direction: column;
+}
+.date-field label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.date-field input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+.update-date-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  align-self: flex-end;
+}
+.update-date-btn:hover {
+  opacity: 0.9;
+}
+
+.other-input {
+  width: 95%;
+  padding: 0.5rem;
+  border: 2px solid #000000;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  font-weight: bold;
+}

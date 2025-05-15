@@ -1,0 +1,181 @@
+/* File: src/LandingPage.css */
+.landing-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(9.1px);
+  -webkit-backdrop-filter: blur(9.1px);
+  border-bottom: 1px solid #fa9522;
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+.navbar-logo {
+  height: 40px;
+}
+.navbar-title {
+  display: inline-block;
+  color: #fa9522;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 0.75rem;
+  margin-top: 0.9rem;
+  margin-bottom: 0rem;
+}
+.navbar-buttons button {
+  margin-left: 1rem;
+}
+
+.top-buttons {
+  display: none; /* moved into navbar */
+}
+
+.add-feeder-btn {
+  margin-right: 3rem;
+  background-color: #fa9522;
+  color: #ffff;
+  border: 2px solid #fa9522;
+}
+.add-feeder-btn,
+.delete-list-btn {
+  padding: 0.6rem 0.9rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 0.99rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feeder-title {
+  color: #565656;
+  font-size: 1.5rem;
+  font-weight: bold
+}
+
+.delete-list-btn {
+  background-color: transparent;
+  border: 2px solid #fa9522;
+  color: #fa9522;
+}
+
+.delete-list-btn:hover {
+  background-color: #c8c8c84a;
+}
+
+.add-feeder-btn:hover {
+  opacity: 0.9;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.feeder-table {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-spacing: 0; /* prevent spacing between cells */
+  border-collapse: separate; /* allow border radius */
+  border-radius: 1rem; /* adjust radius as needed */
+  overflow: hidden;
+}
+
+.feeder-table td {
+  border: 1px solid #d74826;
+  padding: 0.1rem;
+  padding-bottom: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.feeder-table th {
+  background-color: #fa9522;
+  font-weight: bold;
+  padding: 0.4rem;
+  text-align: center;
+  border: 1px solid #d74826;
+}
+
+.feeder-row:hover {
+  background-color: #ffd900;
+}
+
+.update-btn {
+  padding: 0.2rem 1rem;
+  background-color: #fa9522;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.update-btn:hover {
+  background-color: #d74826;
+}
+
+/* On-hold state: red override */
+.on-hold-row {
+  background-color: #e11e1e !important;
+}
+
+.hold-reason {
+  color: azure;
+  font-size: x-small;
+  font-style: italic;
+}
+/* IBC-based row colors */
+.ibc-gadap {
+  background-color: rgb(251, 251, 152);
+}
+
+.ibc-johar1 {
+  background-color: lightgreen;
+}
+
+.ibc-johar2 {
+  background-color: lightblue;
+}
+
+.feeder-table th:first-child {
+  border-top-left-radius: 1rem;
+}
+
+.feeder-table th:last-child {
+  border-top-right-radius: 1rem;
+}
+
+.feeder-table tr:last-child td:first-child {
+  border-bottom-left-radius: 1rem;
+}
+
+.feeder-table tr:last-child td:last-child {
+  border-bottom-right-radius: 1rem;
+}

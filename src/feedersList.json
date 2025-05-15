@@ -1,0 +1,647 @@
+[
+  {
+    "name": "A.D.B.P",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "ABAD BUILDERS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "ABDUL GHANI",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "ABDUL REHMAN",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "ABDULLAH GABOL VILLAGE",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "PAK STEELYARD RMU",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "ABDULLAH SHAH GHAZI GOTH",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "ADMISSION BLOCK",
+    "ibc": "JOHAR 2",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "AFNAN DUPLEX",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "QALANDARABAD",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "RABIA CITY",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "AGHA KHAN TRUST",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "AGHA SHAHI",
+    "ibc": "GADAP",
+    "grid": "GADAP"
+  },
+  {
+    "name": "AGRO EXPORT PROCESSING ZONE",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "QUETTA TOWN RMU",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "NORTHERN BYPASS",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "SAIFAL GOTH",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "AHSANABAD PHASE-IV",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "AJMAIR GARDEN",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "AL MEMON CHS",
+    "ibc": "JOHAR 2",
+    "grid": "FEDERAL-A"
+  },
+  {
+    "name": "AL-ASIF SQUARE",
+    "ibc": "GADAP",
+    "grid": "FEDERAL-B"
+  },
+  {
+    "name": "POLE-20",
+    "ibc": "GADAP",
+    "grid": "FEDERAL-B"
+  },
+  {
+    "name": "ALIG OLD BOYS CHS",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "AL-KHAIR BAKERS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "AL-KHIZERA HEIGHTS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "ALLIANCE ARCADE",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "AMROHA SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "AREESHA CHS",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "ASKARI-4",
+    "ibc": "JOHAR 1",
+    "grid": "GULSHAN"
+  },
+  {
+    "name": "ASKARI-5",
+    "ibc": "JOHAR 1",
+    "grid": "GULSHAN"
+  },
+  {
+    "name": "ASKARI-9",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "ASPHALT PLANT",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "S.HIGHWAY PUMPING",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "SINDH WORKERS WELFARE BOARD",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "DIRECTOR FLATS",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "AZEEM GARDEN",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "BASERA TOWER",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "BEHAVIORAL SCIENCES",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "BHITTAIABAD",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "BILLY'S PARADISE",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "BISMILLAH MARKET",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "BISMILLAH TOWER",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "CAPITAL HOUSING SOCIETY 01",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "CHAMBAILI RMU",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "CHAPAL UPTOWN",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "CHAPPLE BUILDER",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "CITY TOWER AND SHOPPING MALL",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "CLASS-4",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "COUNTY GARDEN",
+    "ibc": "JOHAR 2",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "CROWN GARDEN",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "DANISH FARM RMU",
+    "ibc": "GADAP",
+    "grid": "GADAP"
+  },
+  {
+    "name": "DECENT GARDEN",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "DEH SHAH MUREED",
+    "ibc": "GADAP",
+    "grid": "GADAP"
+  },
+  {
+    "name": "DELUX TOWN",
+    "ibc": "GADAP",
+    "grid": "FEDERAL-A"
+  },
+  {
+    "name": "DIAMOND CITY",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "DOW UNIVERSITY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "DUBAI MALL 2000 RMU",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "ELITE VILLAS",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "EMPIRE CENTRE",
+    "ibc": "JOHAR 1",
+    "grid": "GULSHAN"
+  },
+  {
+    "name": "FALCON COMPLEX",
+    "ibc": "JOHAR 2",
+    "grid": "MALIR"
+  },
+  {
+    "name": "FAMILY PARK",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "FANCY HEIGHTS",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "FARHAN TOWER",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "FAYYAZ ILYAS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "FED GOV EMP HOU FOUNDATION",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "SACHAL SARMAST",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "ZIKRIA GOTH",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "FRUIT MANDI",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "GANHWAR KHAN GABOL",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "GARDEN CITY (MERRYLAND BUILDERS & DEVELOPERS)",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "GEOLOGICAL SURVEY OF PAKISTAN (GSP)",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "GHANIABAD RMU",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "GLOBE CENTER",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "GRAND CITY",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "GREEN LAND CITY (POLE 77 RMU)",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "GREY HEIGHTS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "GUL HOUSES RMU",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "GULISTAN CHS 1",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "GULSHAN VIEW",
+    "ibc": "JOHAR 2",
+    "grid": "FEDERAL-A"
+  },
+  {
+    "name": "GULSHAN-E-AMEEN TOWER",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "H.E.J",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "PREM VILLAS",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "HAKEEM VILLAS",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "HALARI MEMON SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "HAROON ROYAL CITY",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "HEAVEN CITY",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "HUDERWA",
+    "ibc": "GADAP",
+    "grid": "GADAP"
+  },
+  {
+    "name": "HUNAID CITY",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "IBA STAFF COLONY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "IBNE ADAM MOSQUE",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "IMAD ARIF",
+    "ibc": "GADAP",
+    "grid": "MAYMAR"
+  },
+  {
+    "name": "IONOSPHERIC LAB",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "IQRA COMPLEX",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "JAMALI BRIDGE",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "JAMIA KARACHI",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "JHANJAR GOTH",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "JIWANI HEIGHTS",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "JOHAR SQUARE",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "JUBILEE GATE",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "KAKA KHAIL",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "KARACHI JUDICIAL EMPLOYEES CHS",
+    "ibc": "JOHAR 1",
+    "grid": "MALIR"
+  },
+  {
+    "name": "KARACHI UNIVERSITY EMPLOYEE SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "KATHIAWAR SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "KDA EMPLOYEE SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "KDA FILTER PLANT",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "KDA OVERSEAS BUNGLOWS",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "KDA PALACE VIEW",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "KHAN BROTHERS",
+    "ibc": "GADAP",
+    "grid": "FEDERAL-A"
+  },
+  {
+    "name": "KHI. MEMON SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "KING RESIDENCY",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "KWSB-I",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "KWSB-II",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "LUBNA FARM",
+    "ibc": "GADAP",
+    "grid": "GADAP"
+  },
+  {
+    "name": "MADRAS SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "MALIK SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "MARORA GOTH",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "MUHAMMAD FAROOQ",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "NAVY MERCHANT CHS",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "NED MECHANICAL DEPT",
+    "ibc": "JOHAR 2",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "NEW LYARI C.H.S",
+    "ibc": "JOHAR 2",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "NOMAN HEAVEN",
+    "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "OJHA SANITORIUM",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "P.H.A.",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "PAF CHOTTA MALIR",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "PAK IDEAL CHS LTD",
+    "ibc": "JOHAR 1",
+    "grid": "MALIR"
+  },
+  {
+    "name": "PAK LAND",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "PAK SCIENTIFIC SOCIETY",
+    "ibc": "JOHAR 2",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "PEHELWAN GOTH",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "PETAL RESIDENCY",
+    "ibc": "JOHAR 2",
+    "grid": "FEDERAL-A"
+  }
+]

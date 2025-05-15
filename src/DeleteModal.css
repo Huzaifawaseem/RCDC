@@ -1,0 +1,61 @@
+.delete-modal {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 350px;
+  text-align: center;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.29);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8.2px);
+  -webkit-backdrop-filter: blur(8.2px);
+  border: 1px solid #d74826;
+}
+
+.delete-input {
+  width: 91%;
+  padding: 0.5rem;
+  margin: 1rem;
+  margin-left: 0rem;
+  border: 2px solid #6a6a6a;
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+.title {
+  color: #d74826;
+}
+.delete-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-enter, .btn-cancel {
+  flex: 1;
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+  border: none;
+  border-radius: 0.99rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-enter {
+  background-color: #ef4444;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 2px solid #d74826;
+  color: #d74826;
+  transition: background-color 0.3s;
+}
+
+.btn-enter:hover {
+  opacity: 0.8;
+}
+
+.btn-cancel:hover {
+  background-color: #00000028;
+}
