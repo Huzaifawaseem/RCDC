@@ -7,7 +7,6 @@ import AddingPage from './AddingPage';
 import DeleteModal from './DeleteModal';
 import UpdateModal from './UpdateModal';
 import SearchBar from './SearchBar';
-import AlertModal from './AlertModal';
 import './LandingPage.css';
 
 // helper to format Date to YYYY-MM-DD
@@ -114,7 +113,6 @@ export default function LandingPage() {
       {showModal && <div className="modal-overlay"><AddingPage onClose={() => setShowModal(false)} /></div>}
       {showDeleteModal && <div className="modal-overlay"><DeleteModal onConfirm={handleDeleteConfirm} onCancel={() => setShowDeleteModal(false)} /></div>}
       {showUpdateModal && selectedFeeder && <div className="modal-overlay"><UpdateModal feeder={selectedFeeder} onClose={() => { setShowUpdateModal(false); setSelectedFeeder(null); }} /></div>}
-      {showAlert && <AlertModal feeders={feeders} onClose={() => setShowAlert(false)} />}
 
       <text className="feeder-title">RCDC Feeder List</text>
       <table className="feeder-table">

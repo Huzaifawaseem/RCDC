@@ -1,168 +1,110 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './AlertModal.css';
-import AlertTable from './AlertTable';
+// src/AlertModal.jsx
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { ref, onValue } from 'firebase/database';
+import { db } from './firebase';
+import './TimeLogger.css'; // reuse the same styles
 
-function formatDateToISO(date) {
-  const pad = num => String(num).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-}
+/**
+ * AlertModal component:
+ * - Receives `matchedTimes` array (times minus 6 minutes) and `onClose` callback.
+ * - For each matched time, adds 6 minutes to get original, then queries Firebase
+ *   for feeders where onTime or offTime matches within the window.
+ * - Displays results in a table, coloring rows by on_hold or IBC.
+ */
+export default function AlertModal({ matchedTimes, onClose }) {
+  const [rows, setRows] = useState([]);
 
-const parseTime = (baseDate, hhmm, rollNextDay = false) => {
-  const [hours, minutes] = hhmm.split(':').map(Number);
-  const d = new Date(baseDate);
-  if (rollNextDay) d.setDate(d.getDate() + 1);
-  d.setHours(hours, minutes, 0, 0);
-  return d;
-};
-
-export default function AlertModal({ feeders, onClose }) {
-  const [alerts, setAlerts] = useState([]);
-  const [visible, setVisible] = useState(false);
-  const [soundPlaying, setSoundPlaying] = useState(false);
-
-  const audioContextRef = useRef(null);
-  const audioBufferRef  = useRef(null);
-  const audioSourceRef  = useRef(null);
-
-  // 1) Load & decode the alarm sound once, and resume context immediately
   useEffect(() => {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    audioContextRef.current = ctx;
+    if (!matchedTimes.length) return;
 
-    // Try to resume immediately
-    ctx.resume().catch(() => { /* will succeed once user interacts */ });
-
-    fetch('/alarm.mp3')
-      .then(r => r.arrayBuffer())
-      .then(buf => ctx.decodeAudioData(buf))
-      .then(decoded => {
-        audioBufferRef.current = decoded;
-      })
-      .catch(err => console.error('Failed to load alarm:', err));
-
-    // clean up on unmount
-    return () => {
-      stopSound();
-      if (ctx.close) ctx.close();
-    };
-  }, []);
-
-  const playSound = () => {
-    if (!audioBufferRef.current || soundPlaying) return;
-    const src = audioContextRef.current.createBufferSource();
-    src.buffer = audioBufferRef.current;
-    src.loop = true;
-    src.connect(audioContextRef.current.destination);
-    src.start(0);
-    audioSourceRef.current = src;
-    setSoundPlaying(true);
-  };
-
-  const stopSound = () => {
-    if (audioSourceRef.current) {
-      audioSourceRef.current.stop();
-      audioSourceRef.current.disconnect();
-      audioSourceRef.current = null;
-    }
-    setSoundPlaying(false);
-  };
-
-  // 2) Schedule alerts and trigger modal + sound
-  useEffect(() => {
-    const windowBefore = 6 * 60 * 1000;
-    const windowAfter  = 10 * 60 * 1000;
-    const now = Date.now();
-    const timers = [];
-
-    const groupAndSort = list => {
-      const groups = list.reduce((acc, a) => {
-        acc[a.IBC] = acc[a.IBC] || [];
-        acc[a.IBC].push(a);
-        return acc;
-      }, {});
-      return Object.keys(groups)
-        .sort()
-        .flatMap(ibc => {
-          const grp = groups[ibc];
-          const normal = grp.filter(x => !x.on_hold)
-                            .sort((a, b) => a.eventTime - b.eventTime);
-          const holds  = grp.filter(x => x.on_hold)
-                            .sort((a, b) => a.eventTime - b.eventTime);
-          return [...normal, ...holds];
-        });
-    };
-
-    feeders.forEach(f => {
-      const todayIso = formatDateToISO(new Date(now));
-      if (f.fromDate && todayIso < f.fromDate) return;
-
-      const events = [];
-      const offDate = parseTime(now, f.offTime, false);
-      if (!f.toDate || todayIso <= f.toDate) {
-        events.push({ ...f, eventType: 'OFF', eventTime: offDate });
-      }
-
-      const rollOn = f.onTime > f.offTime;
-      const onDate = parseTime(now, f.onTime, rollOn);
-      const onIso  = formatDateToISO(onDate);
-      if (!f.toDate || onIso <= f.toDate) {
-        events.push({ ...f, eventType: 'ON', eventTime: onDate });
-      }
-
-      events.forEach(ev => {
-        const ts     = ev.eventTime.getTime();
-        const showAt = ts - windowBefore;
-        const hideAt = ts + windowAfter;
-
-        if (showAt > now) {
-          timers.push(setTimeout(() => {
-            setAlerts(curr => groupAndSort([...curr, ev]));
-            setVisible(true);
-            playSound();
-          }, showAt - now));
-        } else if (hideAt > now) {
-          setAlerts(curr => groupAndSort([...curr, ev]));
-          setVisible(true);
-          playSound();
-        }
-
-        if (hideAt > now) {
-          timers.push(setTimeout(() => {
-            setVisible(false);
-            setAlerts([]);
-            stopSound();
-            onClose();
-          }, hideAt - now));
-        }
-      });
+    const originalTimes = matchedTimes.map(timeStr => {
+      const [h, m] = timeStr.split(':').map(Number);
+      const dt = new Date();
+      dt.setHours(h);
+      dt.setMinutes(m + 6);
+      const hh = String(dt.getHours()).padStart(2, '0');
+      const mm = String(dt.getMinutes()).padStart(2, '0');
+      return `${hh}:${mm}`;
     });
 
-    return () => timers.forEach(clearTimeout);
-  }, [feeders, onClose]);
+    const feedersRef = ref(db, 'feeders');
+    const unsubscribe = onValue(feedersRef, snapshot => {
+      const data = snapshot.val() || {};
+      const newRows = [];
 
-  if (!visible) return null;
+      Object.values(data).forEach(feeder => {
+        const { feederName, duration, type, IBC, Grid, offTime, onTime, hold_reason, on_hold } = feeder;
+        originalTimes.forEach(orig => {
+          if (offTime === orig) {
+            newRows.push({ feederName, Event: 'OFF', duration, type, IBC, Grid, offTime, onTime, hold_reason, on_hold });
+          }
+          if (onTime === orig) {
+            newRows.push({ feederName, Event: 'ON', duration, type, IBC, Grid, offTime, onTime, hold_reason, on_hold });
+          }
+        });
+      });
+
+      setRows(newRows);
+    }, { onlyOnce: true });
+
+    return () => unsubscribe();
+  }, [matchedTimes]);
+
+  if (!rows.length) return null;
+
+  // Determine row class based on on_hold or IBC value
+  const getRowClass = row => {
+    if (row.on_hold) return 'hold-row';
+    switch (row.IBC) {
+      case 'GADAP': return 'ibc-gadap';
+      case 'JOHAR 2': return 'ibc-johar2';
+      case 'JOHAR 1': return 'ibc-johar1';
+      default: return '';
+    }
+  };
 
   return (
-    <div className="alert-overlay">
-      <div className="alert-modal">
-        <h3>Upcoming Feeder Alerts</h3>
-        <div className="alert-modal-actions">
-          <button
-            className="close-btn"
-            onClick={() => { setVisible(false); stopSound(); onClose(); }}
-          >
-            ×
-          </button>
-          <button
-            className="stop-sound-btn"
-            onClick={stopSound}
-            disabled={!soundPlaying}
-          >
-            Stop Sound
-          </button>
-        </div>
-        <AlertTable alerts={alerts} />
+    <div className="time-logger-overlay" onClick={onClose}>
+      <div className="time-logger-modal" onClick={e => e.stopPropagation()}>
+        <h3>Alert Details</h3>
+        <table className="time-logger-table">
+          <thead>
+            <tr>
+              <th>Feeder Name</th>
+              <th>Event</th>
+              <th>Duration</th>
+              <th>Type</th>
+              <th>IBC</th>
+              <th>Grid</th>
+              <th>OFF Time</th>
+              <th>ON Time</th>
+              <th>Hold Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, idx) => (
+              <tr key={idx} className={getRowClass(row)}>
+                <td>{row.feederName}</td>
+                <td>{row.Event}</td>
+                <td>{row.duration}</td>
+                <td>{row.type}</td>
+                <td>{row.IBC}</td>
+                <td>{row.Grid}</td>
+                <td>{row.offTime}</td>
+                <td>{row.onTime}</td>
+                <td>{row.hold_reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <button onClick={onClose} className="time-logger-close-btn">Close</button>
       </div>
     </div>
   );
 }
+
+AlertModal.propTypes = {
+  matchedTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClose: PropTypes.func.isRequired,
+};

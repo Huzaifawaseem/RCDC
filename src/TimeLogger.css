@@ -1,0 +1,95 @@
+// src/TimeLogger.css
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.time-logger-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.time-logger-modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 80vh;
+  max-width: 90vw;
+  overflow: auto;           /* allow both scrolls when needed */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;        /* horizontal scroll */
+  overflow-y: auto;
+  max-height: 60vh;        /* vertical scroll within wrapper if content tall */
+}
+
+.time-logger-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;         /* force scroll on small screens */
+  margin-top: 10px;
+}
+
+.time-logger-table th,
+.time-logger-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;     /* prevent wrapping */
+}
+
+.time-logger-table th {
+  background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.time-logger-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Custom row colors */
+.hold-row {
+  background-color: red !important;
+  color: #fff;
+}
+
+.ibc-gadap {
+  background-color: yellow;
+}
+
+.ibc-johar2 {
+  background-color: lightblue;
+}
+
+.ibc-johar1 {
+  background-color: lightgreen;
+}
+
+.time-logger-close-btn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.time-logger-close-btn:hover {
+  background-color: #0056b3;
+}
