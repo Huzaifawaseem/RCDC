@@ -24,21 +24,21 @@ html, body {
   border-radius: 8px;
   max-height: 80vh;
   max-width: 90vw;
-  overflow: auto;           /* allow both scrolls when needed */
+  overflow: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .table-wrapper {
   width: 100%;
-  overflow-x: auto;        /* horizontal scroll */
+  overflow-x: auto;
   overflow-y: auto;
-  max-height: 60vh;        /* vertical scroll within wrapper if content tall */
+  max-height: 60vh;
 }
 
 .time-logger-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 800px;         /* force scroll on small screens */
+  min-width: 800px;
   margin-top: 10px;
 }
 
@@ -48,7 +48,7 @@ html, body {
   padding: 8px;
   text-align: left;
   font-size: 14px;
-  white-space: nowrap;     /* prevent wrapping */
+  white-space: nowrap;
 }
 
 .time-logger-table th {
@@ -62,22 +62,22 @@ html, body {
   background-color: #fafafa;
 }
 
-/* Custom row colors */
-.hold-row {
+/* Custom row colors with higher specificity */
+.time-logger-table tbody tr.hold-row {
   background-color: red !important;
   color: #fff;
 }
 
-.ibc-gadap {
-  background-color: yellow;
+.time-logger-table tbody tr.ibc-gadap {
+  background-color: yellow !important;
 }
 
-.ibc-johar2 {
-  background-color: lightblue;
+.time-logger-table tbody tr.ibc-johar2 {
+  background-color: lightblue !important;
 }
 
-.ibc-johar1 {
-  background-color: lightgreen;
+.time-logger-table tbody tr.ibc-johar1 {
+  background-color: lightgreen !important;
 }
 
 .time-logger-close-btn {
