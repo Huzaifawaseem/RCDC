@@ -14,6 +14,13 @@ import { db as newDb } from './newFirebase'; // import new Firebase instance
 export default function EventButton({ row }) {
   const label = row.on_hold ? 'Hold' : row.Event;
 
+  const getButtonClass = () => {
+    if (row.on_hold) return 'btn-hold';
+    if (row.Event === 'ON') return 'btn-on';
+    if (row.Event === 'OFF') return 'btn-off';
+    return 'btn-default';
+  };
+
   const logEvent = () => {
     const now = new Date();
     const hh = String(now.getHours()).padStart(2, '0');
@@ -47,9 +54,9 @@ export default function EventButton({ row }) {
 
   // Double-click for ON/OFF, single-click for Hold
   if (row.on_hold) {
-    return <button onClick={logEvent}>{label}</button>;
+    return <button className={getButtonClass()} onClick={logEvent}>{label}</button>;
   }
-  return <button onDoubleClick={logEvent}>{label}</button>;
+  return <button className={getButtonClass()} onDoubleClick={logEvent}>{label}</button>;
 }
 
 EventButton.propTypes = {

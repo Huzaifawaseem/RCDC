@@ -19,13 +19,16 @@ html, body {
 }
 
 .time-logger-modal {
-  background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
   max-height: 80vh;
   max-width: 90vw;
-  overflow: auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;    /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.57);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgb(200, 2, 2);
 }
 
 .table-wrapper {
@@ -42,54 +45,133 @@ html, body {
   margin-top: 10px;
 }
 
-.time-logger-table th,
-.time-logger-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-  font-size: 14px;
-  white-space: nowrap;
+.time-logger-table {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-spacing: 0;
+  border-collapse: collapse;
+  min-width: 800px;
 }
 
+/* Header styles */
 .time-logger-table th {
-  background-color: #f5f5f5;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  background-color: #fa9522;
+  font-weight: bold;
+  padding: 0.4rem;
+  text-align: center;
+  border: 1px solid #d74826;
 }
 
-.time-logger-table tbody tr:nth-child(even) {
-  background-color: #fafafa;
+/* Data cell styles */
+.time-logger-table td {
+  border: 1px solid #d74826;
+  padding: 0.5rem;
+  padding-bottom: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 400;}
+
+/* Hover effect */
+.time-logger-table tbody tr:hover {
+  background-color: #ffd900;
 }
 
-/* Custom row colors with higher specificity */
+/* Row coloring overrides */
 .time-logger-table tbody tr.hold-row {
-  background-color: red !important;
+  background-color: #e11e1e !important;
   color: #fff;
 }
 
 .time-logger-table tbody tr.ibc-gadap {
-  background-color: yellow !important;
-}
-
-.time-logger-table tbody tr.ibc-johar2 {
-  background-color: lightblue !important;
+  background-color: rgb(251, 251, 152) !important;
 }
 
 .time-logger-table tbody tr.ibc-johar1 {
   background-color: lightgreen !important;
 }
 
-.time-logger-close-btn {
-  margin-top: 15px;
-  padding: 8px 16px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px;
+.time-logger-table tbody tr.ibc-johar2 {
+  background-color: lightblue !important;
+}
+
+/* Optional hold reason styling */
+.hold-reason {
+  color: azure;
+  font-size: x-small;
+  font-style: italic;
+}
+
+
+.btn-on  {
+  padding: 0.4rem 1.5rem;
+  background-color: #28a745; /* green */
+  color: white;
+  border: 1px solid #1e7e34;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.btn-off {
+  padding: 0.4rem 1.3rem;
+  background-color: #dc3545; /* green */
+  color: white;
+  border: 1px solid #bd2130;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.btn-hold {
+  padding: 0.5rem 1.3rem;
+  background-color: #dc3545; /* green */
+  color: white;
+  border: 1px solid #bd2130;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.btn-default {
+  background-color: #6c757d; /* gray fallback */
+  color: white;
+  border: 1px solid #5a6268;
+  padding: 0.3rem 0.6rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.time-logger-close-btn:hover {
-  background-color: #0056b3;
+.time-logger-close-btn {
+  padding: 0.2rem 2rem;
+  margin-top: 1rem;
+  background-color: #fa9522;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.stop-alarm-btn {
+  padding: 0.2rem 1.1rem;
+  margin-top: 1rem;
+  background-color: #fa9522;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.99rem;
+  transition: background-color 0.3s;
+}
+
+.btn-on,
+.btn-off,
+.btn-hold:hover {
+  opacity: 0.9;
+}
+
+.btn-on,
+.btn-off,
+.btn-hold {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.11rem;
 }

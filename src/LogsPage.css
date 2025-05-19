@@ -1,0 +1,39 @@
+/* File: src/LogsPage.css */
+.logs-container {
+    padding-top: 70px; /* space for navbar */
+  }
+  
+  .logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .logs-table th, .logs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .logs-table th {
+    background-color: #f2f2f2;
+  }
+  
+.back-btn {
+    margin-right: 3rem;
+    background-color: #fa9522;
+    color: #ffff;
+    border: 2px solid #fa9522;
+  }
+  .back-btn {
+    padding: 0.6rem 0.9rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 0.99rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .back-btn:hover {
+    opacity: 0.9;
+  }

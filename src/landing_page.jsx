@@ -7,6 +7,7 @@ import AddingPage from './AddingPage';
 import DeleteModal from './DeleteModal';
 import UpdateModal from './UpdateModal';
 import SearchBar from './SearchBar';
+import LogsPage from './LogsPage';
 import './LandingPage.css';
 
 // helper to format Date to YYYY-MM-DD
@@ -21,6 +22,7 @@ export default function LandingPage() {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showLogs, setShowLogs] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
   const [feeders, setFeeders] = useState([]);
   const [selectedFeeder, setSelectedFeeder] = useState(null);
@@ -83,6 +85,11 @@ export default function LandingPage() {
     }
   });
 
+  // If showing logs page
+  if (showLogs) {
+    return <LogsPage onBack={() => setShowLogs(false)} />;
+  }
+
   return (
     <div className="landing-container">
       {/* Fixed Navbar */}
@@ -94,6 +101,7 @@ export default function LandingPage() {
           </div>
           <div className="navbar-buttons">
             <button className="delete-list-btn" onClick={() => setShowDeleteModal(true)}>DELETE COMPLETE LIST</button>
+            <button className="delete-list-btn" onClick={() => setShowLogs(true)}>RCDC LOGS</button>
             <button className="add-feeder-btn" onClick={() => setShowModal(true)}>Add DC Feeder</button>
           </div>
         </div>

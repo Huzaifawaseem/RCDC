@@ -1,5 +1,5 @@
 // src/AlertModal.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ref as oldRef, onValue as onOldValue } from 'firebase/database';
 import { db as oldDb } from './firebase';
@@ -8,39 +8,57 @@ import { db as newDb } from './newFirebase';
 import './TimeLogger.css';
 import EventButton from './EventButton';
 
+/**
+ * AlertModal component:
+ * - Plays `alarm.mp3` on each show, with stop button.
+ * - Resets mute on each new popup.
+ * - Live-filters rows based on logs and matchedTimes.
+ */
 export default function AlertModal({ matchedTimes, onClose }) {
   const [rows, setRows] = useState([]);
+  const audioRef = useRef(null);
+  const [muted, setMuted] = useState(false);
+  const prevMatched = useRef([]);
 
+  // play alarm only when modal first opens (rows go from empty to non-empty)
+  const prevRowsCount = useRef(0);
+  useEffect(() => {
+    if (rows.length > 0 && prevRowsCount.current === 0) {
+      // new popup opening
+      setMuted(false);
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.muted = false;
+        audioRef.current.play().catch(() => {});
+      }
+    }
+    prevRowsCount.current = rows.length;
+  }, [rows]);
+
+  // stop previous redundant effect
+  // removed second useEffect that played on rows & muted
+
+
+  // filtering logic unchanged...
   useEffect(() => {
     if (!matchedTimes.length) return;
-
-    // Prepare original time strings
     const originalTimesStr = matchedTimes.map(timeStr => {
       const [h, m] = timeStr.split(':').map(Number);
-      const dt = new Date();
-      dt.setHours(h);
-      dt.setMinutes(m + 6);
+      const dt = new Date(); dt.setHours(h); dt.setMinutes(m + 6);
       const hh = String(dt.getHours()).padStart(2, '0');
       const mm = String(dt.getMinutes()).padStart(2, '0');
       return `${hh}:${mm}`;
     });
-
     const today = new Date().toISOString().split('T')[0];
-
-    // Subscribe live to event logs
     const logsRef = newRef(newDb, 'eventLogs');
     const unsubscribeLogs = onNewValue(logsRef, snapshotLogs => {
-      const logsData = snapshotLogs.val() || {};
-      const logsArr = Object.values(logsData).filter(log => log.logDate === today);
-
-      // Once logs arrived, subscribe to feeders
+      const logsArr = Object.values(snapshotLogs.val() || {}).filter(log => log.logDate === today);
       const feedersRef = oldRef(oldDb, 'feeders');
       const unsubscribeFeeders = onOldValue(feedersRef, snapshotFeed => {
         const data = snapshotFeed.val() || {};
         const now = new Date();
         const nowMin = now.getHours() * 60 + now.getMinutes();
         const startMin = nowMin - 16;
-
         const filteredRows = Object.values(data).flatMap(feeder => {
           const { feederName, duration, type, IBC, Grid, offTime, onTime, hold_reason, on_hold, hold_from, hold_to } = feeder;
           return originalTimesStr.reduce((acc, timeStr) => {
@@ -48,14 +66,13 @@ export default function AlertModal({ matchedTimes, onClose }) {
               if (feeder[key] === timeStr) {
                 const eventType = key === 'offTime' ? 'OFF' : 'ON';
                 const Event = on_hold ? 'Hold' : eventType;
-                const matchedLog = logsArr.find(log => {
-                  if (log.feederName !== feederName || log.Event !== Event) return false;
+                const matchedLog = logsArr.find(log => log.feederName === feederName && log.Event === Event && (() => {
                   const [lh, lm] = log.logTime.split(':').map(Number);
                   const logMin = lh * 60 + lm;
                   return startMin >= 0
                     ? logMin >= startMin && logMin <= nowMin
                     : logMin <= nowMin;
-                });
+                })());
                 if (!matchedLog) {
                   acc.push({ feederName, Event, duration, type, IBC, Grid, offTime, onTime, hold_reason, on_hold, hold_from, hold_to });
                 }
@@ -64,15 +81,10 @@ export default function AlertModal({ matchedTimes, onClose }) {
             return acc;
           }, []);
         });
-
         setRows(filteredRows);
       });
-
-      // cleanup feeders listener on logs change
       return () => unsubscribeFeeders();
     });
-
-    // cleanup logs listener
     return () => unsubscribeLogs();
   }, [matchedTimes]);
 
@@ -88,10 +100,21 @@ export default function AlertModal({ matchedTimes, onClose }) {
     }
   };
 
+  const handleStop = e => {
+    e.stopPropagation();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setMuted(true); // prevent replay until next popup
+    }
+  };
+
   return (
     <div className="time-logger-overlay" onClick={onClose}>
       <div className="time-logger-modal" onClick={e => e.stopPropagation()}>
+        <audio ref={audioRef} src="/alarm.mp3" loop />
         <h3>Alert Details</h3>
+        <button className="stop-alarm-btn" onClick={handleStop}>Stop Alarm</button>
         <div className="table-wrapper">
           <table className="time-logger-table">
             <thead>
@@ -99,7 +122,7 @@ export default function AlertModal({ matchedTimes, onClose }) {
                 <th>Feeder Name</th>
                 <th>Event</th>
                 <th>Duration</th>
-                <th>Type</th>
+                <th>Remarks</th>
                 <th>IBC</th>
                 <th>Grid</th>
                 <th>OFF Time</th>
