@@ -355,6 +355,11 @@
     "grid": "JOHAR"
   },
   {
+    "name": "PEHELWAN GOTH",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
     "name": "GHANIABAD RMU",
     "ibc": "GADAP",
     "grid": "MAYMAR"
@@ -476,6 +481,16 @@
   },
   {
     "name": "JHANJAR GOTH",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "MEERIOTH SOCIETY",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "RUPALI RMU",
     "ibc": "GADAP",
     "grid": "KDA"
   },
