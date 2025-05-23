@@ -107,6 +107,12 @@ export default function LandingPage() {
         </div>
       </nav>
 
+      <div className="navbar-buttonss">
+            <button className="delete-list-btn" onClick={() => setShowDeleteModal(true)}>DELETE COMPLETE LIST</button>
+            <button className="delete-list-btn" onClick={() => setShowLogs(true)}>RCDC LOGS</button>
+            <button className="add-feeder-btn" onClick={() => setShowModal(true)}>Add DC Feeder</button>
+      </div>
+
       {/* Search Bar */}
       <SearchBar options={[
         { value: 'JOHAR 1', label: 'JOHAR 1' },
@@ -117,6 +123,7 @@ export default function LandingPage() {
         { value: 'Adjustment', label: 'Adjustment' },
         { value: 'CDO Priority', label: 'CDO Priority' },
       ]} onSearch={handleSearch} />
+      
 
       {showModal && <div className="modal-overlay"><AddingPage onClose={() => setShowModal(false)} /></div>}
       {showDeleteModal && <div className="modal-overlay"><DeleteModal onConfirm={handleDeleteConfirm} onCancel={() => setShowDeleteModal(false)} /></div>}

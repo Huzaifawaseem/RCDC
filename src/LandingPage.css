@@ -179,3 +179,102 @@
 .feeder-table tr:last-child td:last-child {
   border-bottom-right-radius: 1rem;
 }
+
+@media (min-width: 769px){
+  .navbar-buttonss {
+    display: none;
+  }
+}
+
+/* Responsive: Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 1rem;
+  }
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-buttons {
+    display: none;
+  }
+
+  .navbar-buttonss {
+    margin-top: 4rem;
+    width: 100%; /* Use 100% or a fixed width instead of 110% */
+    display: flex;
+    justify-content: center; /* This centers the children horizontally */
+    gap: 1rem;
+    margin-right: 0px !important;
+  }
+
+  .add-feeder-btn,
+.delete-list-btn {
+  flex: 1;
+  max-width: 200px; /* optional: controls button width */
+  margin-right: 0px !important;
+}
+  .navbar-logo {
+    height: 32px;
+  }
+  .navbar-title {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+  .feeder-table th,
+  .feeder-table td {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.85rem;
+  }
+  .update-btn {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .feeder-table {
+    width: 100%;
+    margin-top: 0.5rem;
+    border-spacing: 0; /* prevent spacing between cells */
+    border-collapse: separate; /* allow border radius */
+    border-radius: 1rem; /* adjust radius as needed */
+    overflow: hidden;
+  }
+}
+
+/* Responsive: Extra small (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar-inner { justify-content: center; }
+  .landing-container {
+    padding: 0rem;
+  }
+
+  .navbar-buttonss {
+    margin-top: 4.5rem;
+    gap: 0.5rem;
+  }
+
+  .feeder-table th,
+  .feeder-table td {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .update-btn { width: 100%; }
+
+  .feeder-table {
+    width: 100%;
+    margin-top: 0.5rem;
+    border-spacing: 0; /* prevent spacing between cells */
+    border-collapse: separate; /* allow border radius */
+    border-radius: 1rem; /* adjust radius as needed */
+    overflow: hidden;
+    margin-left: 0px !important;
+    width: 100%;
+  overflow: hidden;
+  display: block;           /* enables horizontal scroll on the wrapper */
+  overflow-x: auto;
+  }
+}

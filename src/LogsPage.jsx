@@ -45,6 +45,9 @@ export default function LogsPage({ onBack }) {
         </div>
       </nav>
 
+      <div className="navbar-buttonsss">
+            <button className="back-btn" onClick={onBack}>Go Back</button>
+      </div>
       <table className="logs-table">
         <thead>
           <tr>

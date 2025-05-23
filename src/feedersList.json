@@ -5,6 +5,21 @@
     "grid": "HOSPITAL"
   },
   {
+    "name": "MEERIOTH SOCIETY",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
+    "name": "PEHELWAN GOTH",
+    "ibc": "JOHAR 1",
+    "grid": "JOHAR"
+  },
+  {
+    "name": "RUPALI RMU",
+    "ibc": "GADAP",
+    "grid": "KDA"
+  },
+  {
     "name": "ABAD BUILDERS",
     "ibc": "JOHAR 1",
     "grid": "HOSPITAL"

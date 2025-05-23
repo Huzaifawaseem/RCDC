@@ -33,3 +33,12 @@
 .search-btn:hover:not(:disabled) {
   opacity: 0.9;
 }
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
