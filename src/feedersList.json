@@ -35,6 +35,16 @@
     "grid": "KDA"
   },
   {
+    "name": "PRINCE ALI",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
+    "name": "GANHWAR KHAN GABOL",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
     "name": "ABDULLAH GABOL VILLAGE",
     "ibc": "GADAP",
     "grid": "MAYMAR"
@@ -167,6 +177,11 @@
   {
     "name": "ASKARI-9",
     "ibc": "JOHAR 1",
+    "grid": "HOSPITAL"
+  },
+  {
+    "name": "USMAN TERRACE",
+    "ibc": "JOHAR 2",
     "grid": "HOSPITAL"
   },
   {
