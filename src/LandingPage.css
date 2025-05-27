@@ -273,7 +273,6 @@
     overflow: hidden;
     margin-left: 0px !important;
     width: 100%;
-  overflow: hidden;
   display: block;           /* enables horizontal scroll on the wrapper */
   overflow-x: auto;
   }

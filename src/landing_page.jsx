@@ -6,6 +6,7 @@ import { db } from './firebase';
 import AddingPage from './AddingPage';
 import DeleteModal from './DeleteModal';
 import UpdateModal from './UpdateModal';
+import MailModal from './MailModal';
 import SearchBar from './SearchBar';
 import LogsPage from './LogsPage';
 import './LandingPage.css';
@@ -22,6 +23,7 @@ export default function LandingPage() {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showMailModal, setShowMailModal] = useState(false);
   const [showLogs, setShowLogs] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
   const [feeders, setFeeders] = useState([]);
@@ -101,16 +103,19 @@ export default function LandingPage() {
           </div>
           <div className="navbar-buttons">
             <button className="delete-list-btn" onClick={() => setShowDeleteModal(true)}>DELETE COMPLETE LIST</button>
+            <button className="delete-list-btn" onClick={() => setShowMailModal(true)}>ADD MAIL</button>
             <button className="delete-list-btn" onClick={() => setShowLogs(true)}>RCDC LOGS</button>
             <button className="add-feeder-btn" onClick={() => setShowModal(true)}>Add DC Feeder</button>
           </div>
         </div>
       </nav>
 
+      {/* Secondary Navbar for responsiveness */}
       <div className="navbar-buttonss">
-            <button className="delete-list-btn" onClick={() => setShowDeleteModal(true)}>DELETE COMPLETE LIST</button>
-            <button className="delete-list-btn" onClick={() => setShowLogs(true)}>RCDC LOGS</button>
-            <button className="add-feeder-btn" onClick={() => setShowModal(true)}>Add DC Feeder</button>
+        <button className="delete-list-btn" onClick={() => setShowDeleteModal(true)}>DELETE COMPLETE LIST</button>
+        <button className="delete-list-btn" onClick={() => setShowMailModal(true)}>ADD MAIL</button>
+        <button className="delete-list-btn" onClick={() => setShowLogs(true)}>RCDC LOGS</button>
+        <button className="add-feeder-btn" onClick={() => setShowModal(true)}>Add DC Feeder</button>
       </div>
 
       {/* Search Bar */}
@@ -123,12 +128,14 @@ export default function LandingPage() {
         { value: 'Adjustment', label: 'Adjustment' },
         { value: 'CDO Priority', label: 'CDO Priority' },
       ]} onSearch={handleSearch} />
-      
 
+      {/* Modals */}
       {showModal && <div className="modal-overlay"><AddingPage onClose={() => setShowModal(false)} /></div>}
       {showDeleteModal && <div className="modal-overlay"><DeleteModal onConfirm={handleDeleteConfirm} onCancel={() => setShowDeleteModal(false)} /></div>}
       {showUpdateModal && selectedFeeder && <div className="modal-overlay"><UpdateModal feeder={selectedFeeder} onClose={() => { setShowUpdateModal(false); setSelectedFeeder(null); }} /></div>}
+      {showMailModal && <div className="modal-overlay"><MailModal onClose={() => setShowMailModal(false)} /></div>}
 
+      {/* Feeder List */}
       <text className="feeder-title">RCDC Feeder List</text>
       <table className="feeder-table">
         <thead>
