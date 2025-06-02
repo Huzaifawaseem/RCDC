@@ -10,6 +10,11 @@
     "grid": "KDA"
   },
   {
+    "name": "PRINCE ALI",
+    "ibc": "JOHAR 2",
+    "grid": "KDA"
+  },
+  {
     "name": "PEHELWAN GOTH",
     "ibc": "JOHAR 1",
     "grid": "JOHAR"
@@ -311,6 +316,11 @@
   },
   {
     "name": "FALCON COMPLEX",
+    "ibc": "JOHAR 2",
+    "grid": "MALIR"
+  },
+  {
+    "name": "VERVAL PATAN C.H.S",
     "ibc": "JOHAR 2",
     "grid": "MALIR"
   },
